@@ -130,7 +130,7 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
 
                      console.log("Status Final do Aluno: ")
                      console.log("")
-                     console.log("Aluno(a)", nome ,", escola: ", nomeEscola )
+                     console.log("O Aluno(a):", nome ,", da escola:", nomeEscola )
                      //toFixed -> é um método que permite fixar a qtde de casas decimais
                      console.log("Resultado da média: ", media.toFixed(2) ," = ", statusDoAluno)
                      console.log("")
@@ -146,5 +146,6 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
    })//Fecha nota4
  })//Fecha nome da escola
 })//Fecha nome
+
 
 
