@@ -48,6 +48,14 @@
          OU -> OR -> ||
          NAO -> NOT -> !
 
+      Formas de conversão de tipos de dados
+         parseInt() -> Permite converter um conteúdo em numero do tipo INTEIRO
+         ParseFloat() -> Permite converter um conteúdo em número do tipo DECIMAL
+         Number() -> Permite converter um conteúdo para NÚMERO, podendo ser
+                     inteiro ou decimal
+         String() -> Permite converter um conteúdo em STRING
+         Boolean() -> Permite converter um conteúdo para BOOLEANO (true ou false)
+
 
 */
 //Import da biblioteca
@@ -63,6 +71,10 @@ const entradaDeDados = readline.createInterface({
 entradaDeDados.question('Digite o nome do aluno: ', function(nome){
       //Recebe o nome do Aluno
       let nomeAluno = nome
+
+      entradaDeDados.question('Digite o nome da escola: ', function(escola){
+         //Recebe o nome da Escola
+         let nomeEscola = escola
 
       //Entrada de dados da nota1
       entradaDeDados.question('Digite a nota 1: ', function(valor1){
@@ -80,21 +92,54 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
                entradaDeDados.question('Digite a nota 4: ', function(valor4){
                   let nota4 = valor4
 
-                     
+                  let somaDasNotas = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4) )
+
                   //Validação de entrada vazia
-                  if(nomeAluno == '' || nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
+                  if(nomeAluno == '' || nomeEscola == ''|| nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
                      console.log("ERRO: Existem campos obrigatórios que não foram preenchidos!!!")
                   //Validação númerica   
                   }else if(nota1<0 || nota1>100 || nota2 < 0 || nota2 >100 || nota3 < 0 || nota3 >100 || nota4 < 0 || nota4 >100){
                      console.log("ERRO: Existem campos que não foram preenchidos corretamente, coloque notas entre 0 até 100")
                   //Validação de número ou letra
+                  //isNan() -> Permite validar se é um número ou letra
                   }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
                      console.log("Somente números são permitidos na entrada das notas")
+                  }else {
+
+                     let statusDoAluno
+                     
+                     let media = Number(somaDasNotas) / 4;
+
+                     if (media >= 70){
+
+                        statusDoAluno = "Aprovado"
+
+                     }else if (media <= 50){
+
+                        statusDoAluno = "Reprovado"
+
+                     }else {
+
+                        statusDoAluno = "Em recuperação"
+                     }
+
+                     console.log("------------------------------------------------")
+
+                     console.log("Status Final do Aluno: ")
+                     console.log("")
+                     console.log("Aluno(a)", nome ,", escola: ", nomeEscola )
+                     console.log("Resultado da média: ", media ," = ", statusDoAluno)
+                     console.log("")
+
+                     console.log("------------------------------------------------")
+                     
                   }
+                     
 
             })//Fecha nota1
          })//Fecha nota2
       })//Fecha nota3
    })//Fecha nota4
-
+ })//Fecha nome da escola
 })//Fecha nome
+
