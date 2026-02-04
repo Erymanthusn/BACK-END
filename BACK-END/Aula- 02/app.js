@@ -55,6 +55,9 @@
                      inteiro ou decimal
          String() -> Permite converter um conteúdo em STRING
          Boolean() -> Permite converter um conteúdo para BOOLEANO (true ou false)
+         typeof() -> Retorna tipo de dados de uma variável
+                     (Strinf, Number, Boolean ou Object)
+
 
 
 */
@@ -128,7 +131,8 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
                      console.log("Status Final do Aluno: ")
                      console.log("")
                      console.log("Aluno(a)", nome ,", escola: ", nomeEscola )
-                     console.log("Resultado da média: ", media ," = ", statusDoAluno)
+                     //toFixed -> é um método que permite fixar a qtde de casas decimais
+                     console.log("Resultado da média: ", media.toFixed(2) ," = ", statusDoAluno)
                      console.log("")
 
                      console.log("------------------------------------------------")
@@ -142,4 +146,5 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
    })//Fecha nota4
  })//Fecha nome da escola
 })//Fecha nome
+
 
