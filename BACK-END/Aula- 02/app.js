@@ -80,14 +80,21 @@ entradaDeDados.question('Digite o nome do aluno: ', function(nome){
                entradaDeDados.question('Digite a nota 4: ', function(valor4){
                   let nota4 = valor4
 
+                     
+                  //Validação de entrada vazia
                   if(nomeAluno == '' || nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
-                     console.log("ERRO")
-                  }else{
-                     console.log('Calcular')
+                     console.log("ERRO: Existem campos obrigatórios que não foram preenchidos!!!")
+                  //Validação númerica   
+                  }else if(nota1<0 || nota1>100 || nota2 < 0 || nota2 >100 || nota3 < 0 || nota3 >100 || nota4 < 0 || nota4 >100){
+                     console.log("ERRO: Existem campos que não foram preenchidos corretamente, coloque notas entre 0 até 100")
+                  //Validação de número ou letra
+                  }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
+                     console.log("Somente números são permitidos na entrada das notas")
                   }
 
             })//Fecha nota1
          })//Fecha nota2
       })//Fecha nota3
    })//Fecha nota4
+
 })//Fecha nome
